@@ -73,30 +73,46 @@ export default function HeroSection({ onContactClick, id }: HeroSectionProps) {
               {avatarMode === "classic" ? (
                 <img
                   src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
-                  alt="Jack portrait classic"
+                  alt="Arya Chib portrait classic"
                   referrerPolicy="no-referrer"
                   className="w-full h-auto object-cover select-none pointer-events-none filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
                 />
               ) : avatarMode === "cyber" ? (
                 <img
                   src={cyberAvatar}
-                  alt="Jack portrait cyber"
+                  alt="Arya Chib portrait cyber"
                   referrerPolicy="no-referrer"
                   className="w-full h-auto object-cover select-none pointer-events-none filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] rounded-3xl border-2 border-[#BBCCD7]/30"
                 />
               ) : avatarMode === "face" ? (
-                <div className="w-[240px] h-[240px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] mx-auto rounded-full overflow-hidden border-[8px] border-[#161616] shadow-[0_15px_45px_rgba(0,0,0,0.6)] bg-[#1e1e1e]">
+                <div className="w-[240px] h-[240px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] mx-auto rounded-full overflow-hidden border-[8px] border-[#161616] shadow-[0_15px_45px_rgba(0,0,0,0.6)] bg-[#1e1e1e] relative">
                   <img
                     src={faceAvatar}
-                    alt="Jack portrait cartoon face"
+                    alt="Arya Chib portrait cartoon face"
                     referrerPolicy="no-referrer"
                     className="w-full h-full object-cover select-none pointer-events-none"
                   />
+                  {/* High fidelity dynamic HTML replacement overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[23%] bg-white flex flex-col justify-center items-center text-center px-1 sm:px-2 z-10 select-text">
+                    <div className="text-[12px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-extrabold text-[#111111] leading-none tracking-tight">
+                      Arya Chib
+                    </div>
+                    <div className="text-[5.5px] sm:text-[8px] md:text-[9.5px] lg:text-[11px] font-bold text-gray-500 tracking-wider uppercase mt-0.5 sm:mt-1 leading-none">
+                      Automation & Web Developer
+                    </div>
+                    <div className="text-[5px] sm:text-[7px] md:text-[8px] lg:text-[9.5px] text-gray-400 mt-0.5 sm:mt-1.5 flex items-center justify-center gap-1 leading-none font-medium">
+                      <span>Delhi, India</span>
+                      <span className="text-gray-300">|</span>
+                      <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-black font-semibold">GitHub</a>
+                      <span className="text-gray-300">|</span>
+                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-blue-600 font-semibold">LinkedIn</a>
+                    </div>
+                  </div>
                 </div>
               ) : (
                 <img
                   src={customUrl}
-                  alt="Jack portrait custom"
+                  alt="Arya Chib portrait custom"
                   referrerPolicy="no-referrer"
                   className="w-full h-auto object-cover select-none pointer-events-none filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] rounded-3xl border-2 border-[#B600A8]/50"
                   onError={(e) => {

@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import Magnet from "./Magnet";
 import ContactButton from "./ContactButton";
 import FadeIn from "./FadeIn";
-// @ts-ignore
-import cyberAvatar from "../assets/images/cyber_jack_avatar_1782029608610.jpg";
 // @ts-ignore
 import faceAvatar from "../assets/images/jack_face_avatar_1782030058666.jpg";
 
@@ -13,10 +11,6 @@ interface HeroSectionProps {
 }
 
 export default function HeroSection({ onContactClick, id }: HeroSectionProps) {
-  const [avatarMode, setAvatarMode] = useState<"classic" | "cyber" | "face" | "custom">("face");
-  const [customUrl, setCustomUrl] = useState("https://i.pinimg.com/originals/ae/0f/f2/ae0ff281fd276ec9d62fd5a8c9b30d83.gif"); // Elegant default fallback
-  const [showInput, setShowInput] = useState(false);
-
   const navLinks = [
     { label: "About", href: "#about" },
     { label: "Price", href: "#services" },
@@ -61,7 +55,7 @@ export default function HeroSection({ onContactClick, id }: HeroSectionProps) {
             delay={0.6}
             y={30}
             duration={0.8}
-            className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 pointer-events-auto flex flex-col items-center gap-4"
+            className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-12 pointer-events-auto flex flex-col items-center gap-4"
           >
             <Magnet
               padding={150}
@@ -70,138 +64,31 @@ export default function HeroSection({ onContactClick, id }: HeroSectionProps) {
               inactiveTransition="transform 0.6s ease-in-out"
               className="w-[280px] sm:w-[360px] md:w-[440px] lg:w-[520px]"
             >
-              {avatarMode === "classic" ? (
+              <div className="w-[240px] h-[240px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] mx-auto rounded-full overflow-hidden border-[8px] border-[#161616] shadow-[0_15px_45px_rgba(0,0,0,0.6)] bg-[#1e1e1e] relative">
                 <img
-                  src="https://shrug-person-78902957.figma.site/_components/v2/d24c01ad3a56fc65e942a1f501eb73db42d7cf9a/Rectangle_40443.81459862.png"
-                  alt="Arya Chib portrait classic"
+                  src={faceAvatar}
+                  alt="Arya Chib portrait cartoon face"
                   referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover select-none pointer-events-none filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)]"
+                  className="w-full h-full object-cover select-none pointer-events-none"
                 />
-              ) : avatarMode === "cyber" ? (
-                <img
-                  src={cyberAvatar}
-                  alt="Arya Chib portrait cyber"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover select-none pointer-events-none filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] rounded-3xl border-2 border-[#BBCCD7]/30"
-                />
-              ) : avatarMode === "face" ? (
-                <div className="w-[240px] h-[240px] sm:w-[340px] sm:h-[340px] md:w-[420px] md:h-[420px] lg:w-[480px] lg:h-[480px] mx-auto rounded-full overflow-hidden border-[8px] border-[#161616] shadow-[0_15px_45px_rgba(0,0,0,0.6)] bg-[#1e1e1e] relative">
-                  <img
-                    src={faceAvatar}
-                    alt="Arya Chib portrait cartoon face"
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-cover select-none pointer-events-none"
-                  />
-                  {/* High fidelity dynamic HTML replacement overlay */}
-                  <div className="absolute bottom-0 left-0 right-0 h-[23%] bg-white flex flex-col justify-center items-center text-center px-1 sm:px-2 z-10 select-text">
-                    <div className="text-[12px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-extrabold text-[#111111] leading-none tracking-tight">
-                      Arya Chib
-                    </div>
-                    <div className="text-[5.5px] sm:text-[8px] md:text-[9.5px] lg:text-[11px] font-bold text-gray-500 tracking-wider uppercase mt-0.5 sm:mt-1 leading-none">
-                      Automation & Web Developer
-                    </div>
-                    <div className="text-[5px] sm:text-[7px] md:text-[8px] lg:text-[9.5px] text-gray-400 mt-0.5 sm:mt-1.5 flex items-center justify-center gap-1 leading-none font-medium">
-                      <span>Delhi, India</span>
-                      <span className="text-gray-300">|</span>
-                      <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-black font-semibold">GitHub</a>
-                      <span className="text-gray-300">|</span>
-                      <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:underline hover:text-blue-600 font-semibold">LinkedIn</a>
-                    </div>
+                {/* High fidelity dynamic HTML replacement overlay */}
+                <div className="absolute bottom-0 left-0 right-0 h-[23%] bg-white flex flex-col justify-center items-center text-center px-1 sm:px-2 z-10 select-text">
+                  <div className="text-[12px] sm:text-[18px] md:text-[22px] lg:text-[26px] font-extrabold text-[#111111] leading-none tracking-tight">
+                    Arya Chib
+                  </div>
+                  <div className="text-[5.5px] sm:text-[8px] md:text-[9.5px] lg:text-[11px] font-bold text-gray-500 tracking-wider uppercase mt-0.5 sm:mt-1 leading-none">
+                    Automation & Web Developer
+                  </div>
+                  <div className="text-[5px] sm:text-[7px] md:text-[8px] lg:text-[9.5px] text-gray-400 mt-0.5 sm:mt-1.5 flex items-center justify-center gap-1 leading-none font-medium">
+                    <span>Delhi, India</span>
+                    <span className="text-gray-300">|</span>
+                    <span className="font-semibold text-gray-400">GitHub</span>
+                    <span className="text-gray-300">|</span>
+                    <span className="font-semibold text-gray-400">LinkedIn</span>
                   </div>
                 </div>
-              ) : (
-                <img
-                  src={customUrl}
-                  alt="Arya Chib portrait custom"
-                  referrerPolicy="no-referrer"
-                  className="w-full h-auto object-cover select-none pointer-events-none filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.8)] rounded-3xl border-2 border-[#B600A8]/50"
-                  onError={(e) => {
-                    // Fail gracefully back to default
-                    (e.target as HTMLImageElement).src = faceAvatar;
-                  }}
-                />
-              )}
-            </Magnet>
-
-            {/* Seamless style toggling controller with Custom Input option */}
-            <div className="flex flex-col items-center gap-2 bg-[#121212]/90 backdrop-blur-md p-1.5 rounded-2xl border border-white/10 shadow-xl transform -translate-y-3 sm:translate-y-0 sm:-mt-2 select-none z-30 pointer-events-auto">
-              <div className="flex items-center gap-1.5">
-                <button
-                  onClick={() => {
-                    setAvatarMode("face");
-                    setShowInput(false);
-                  }}
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
-                    avatarMode === "face"
-                      ? "bg-[#BBCCD7] text-[#0C0C0C] shadow-[0_0_8px_rgba(187,204,215,0.4)]"
-                      : "text-[#D7E2EA]/55 hover:text-[#D7E2EA]"
-                  }`}
-                >
-                  Cartoon Face
-                </button>
-                <button
-                  onClick={() => {
-                    setAvatarMode("classic");
-                    setShowInput(false);
-                  }}
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
-                    avatarMode === "classic"
-                      ? "bg-[#D7E2EA] text-[#0C0C0C]"
-                      : "text-[#D7E2EA]/55 hover:text-[#D7E2EA]"
-                  }`}
-                >
-                  Classic
-                </button>
-                <button
-                  onClick={() => {
-                    setAvatarMode("cyber");
-                    setShowInput(false);
-                  }}
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
-                    avatarMode === "cyber"
-                      ? "bg-[#BBCCD7] text-[#0C0C0C]/80"
-                      : "text-[#D7E2EA]/55 hover:text-[#D7E2EA]"
-                  }`}
-                >
-                  Cyber AI
-                </button>
-                <button
-                  onClick={() => {
-                    setAvatarMode("custom");
-                    setShowInput(!showInput);
-                  }}
-                  className={`px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase transition-all duration-200 cursor-pointer ${
-                    avatarMode === "custom"
-                      ? "bg-[#B600A8] text-white shadow-[0_0_8px_rgba(182,0,168,0.5)]"
-                      : "text-[#D7E2EA]/55 hover:text-[#D7E2EA]"
-                  }`}
-                >
-                  Paste URL
-                </button>
               </div>
-
-              {/* Collapsible input panel for copying any raw image URL (Pinterest direct address, etc.) */}
-              {avatarMode === "custom" && (showInput || customUrl === "") && (
-                <div className="px-2 pb-1.5 pt-0.5 flex flex-col gap-1 w-[200px] sm:w-[240px]">
-                  <input
-                    type="text"
-                    value={customUrl}
-                    onChange={(e) => setCustomUrl(e.target.value)}
-                    placeholder="Paste direct image URL..."
-                    className="w-full bg-black/60 border border-white/20 focus:border-[#B600A8]/80 text-[10px] rounded-lg px-2 py-1 text-white placeholder-white/35 outline-none font-mono"
-                  />
-                  <div className="flex justify-between items-center text-[8px] text-white/50 tracking-wider">
-                    <span>Right-click image &gt; Copy Image Address</span>
-                    <button
-                      onClick={() => setShowInput(false)}
-                      className="text-[#BBCCD7] hover:text-white font-bold cursor-pointer underline"
-                    >
-                      Hide
-                    </button>
-                  </div>
-                </div>
-              )}
-            </div>
+            </Magnet>
           </FadeIn>
         </div>
       </div>

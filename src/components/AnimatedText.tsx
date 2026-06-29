@@ -23,6 +23,10 @@ function Character({ char, index, total, progress }: CharacterProps) {
   const end = Math.min(1, start + 0.1); 
   const opacity = useTransform(progress, [start, end], [0.2, 1]);
 
+  if (char === " ") {
+    return <span className="inline-block w-[0.25em]">&nbsp;</span>;
+  }
+
   return (
     <span className="relative inline-block">
       {/* Invisible placeholder for layout constraints & sizing */}
